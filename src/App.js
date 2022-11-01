@@ -27,12 +27,13 @@ function App() {
     })
     setMyAnimeList(newArray)
   }
-  const getData=async()=>{
+  
+  useEffect(()=>{
+    const getData=async()=>{
       const res=await fetch(`https://api.jikan.moe/v4/anime?q=${search}&limit=20`)
       const resData= await res.json();
       setAnimeData(resData.data)
   }
-  useEffect(()=>{
     getData()
   },[search])
 
